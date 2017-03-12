@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %} {% endblock %}</title>
+	<link rel="stylesheet"  href="{{base_url()}}/assets/flat-ui/css/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet"  href="{{base_url()}}/assets/flat-ui/css/flat-ui.min.css">
+</head>
+<body>
+	{% include 'templates/partials/nav.twig' %}
+	<section class="container">
+		<aside>
+			{% include 'templates/partials/sidebar.twig' %}
+		</aside>	
+		<article>
+			{% block content %} {% endblock %}		
+		</article>
+	</section>
+</body>
+</html>

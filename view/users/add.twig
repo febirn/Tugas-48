@@ -1,0 +1,50 @@
+{% extends 'templates/template.twig' %}
+
+{% block title %} Add User {% endblock %}
+
+{% block content %}
+<div class="col-md-6 col-md-offset-3 well">
+	{% if success %}
+	<div class="alert alert-success">
+		<span class="fui-check-circle"></span>
+		<span class="pull-right">{{ success }}</span>
+	</div>
+	{% endif %}
+	<h6 class=text-center>ADD USER</h6>
+    <form action="{{path_for('user.add.post')}}" method="post" class="form-horizontal">
+		<div class="form-flat {{ errors.username ? 'has-error' }}">
+			<input class="form-control" type="text" name="username" placeholder="Username" value="{{ old.username }}">
+			{% if errors.username %}
+				<span class="help-block">{{ errors.username | first }}</span>
+			{% endif %}
+		</div>
+		<div class="form-flat {{ errors.password ? 'has-error' }}">
+			<input class="form-control" type="password" name="password" placeholder="Password" value="{{ old.password }}">
+			{% if errors.password %}
+				<span class="help-block">{{ errors.password | first }}</span>
+			{% endif %}
+		</div>
+		<div class="form-flat {{ errors.email ? 'has-error' }}">
+			<input class="form-control" type="text" name="email" placeholder="E-Mail" value="{{ old.email }}">
+			{% if errors.email %}
+				<span class="help-block">{{ errors.email | first }}</span>
+			{% endif %}
+		</div>
+		<div class="form-flat {{ errors.first_name ? 'has-error' }}">
+			<input class="form-control" type="text" name="first_name" placeholder="First Name" value="{{ old.first_name }}">
+			{% if errors.first_name %}
+				<span class="help-block">{{ errors.first_name | first }}</span>
+			{% endif %}
+		</div>
+		<div class="form-flat {{ errors.last_name ? 'has-error' }}">
+			<input class="form-control" type="text" name="last_name" placeholder="Last Name" value="{{ old.last_name }}">
+			{% if errors.last_name %}
+				<span class="help-block">{{ errors.last_name | first }}</span>
+			{% endif %}
+		</div>
+		<div class="form-flat">
+			<button type="submit" class="btn btn-embossed btn-inverse">Register</button>
+		</div>
+    </form>
+</div>
+{% endblock %}
